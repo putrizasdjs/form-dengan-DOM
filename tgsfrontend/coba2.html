@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir</title>
+</head>
+    <body>
+        <form >        
+            <label for ="nama">Nama Lengkap :</label><br>
+            <input type="text" name="nama" id="nama"><br>
+
+            <label for ="email">Alamat email :</label><br>
+            <input type="email" name="email" id="email"><br><br>
+
+            <label for ="gender" >Jenis kelamin:</label><br>
+            <input type="radio" class="check-input" name="gender"  value="Pria" onchange="Proses()">Pria <br><br>
+            <input type="radio" name="gender"  value="Wanita" onchange="Proses()">Wanita <br><br>
+
+            <label for ="agama" >Agama :</label><br>
+            <select name="agama" id="agama">
+                <option value="Islam" >Islam</option>
+                <option value="Katolik" >Katolik</option>
+                <option value="Protestan" >Kristen Protestan</option>
+                <option value="Hindu" >Hindu</option>
+                <option value="Buddha" >Buddha</option>
+                <option value="Konghucu" >Konghucu</option>
+            </select>
+            <br><br>
+
+            <label for ="alamat">Alamat rumah :</label><br>
+            <textarea name="alamat" id="alamat"  cols="50" rows="5" onchange="Proses()" ></textarea>
+            <br><br>
+
+            <input type ="submit" value="proses" onclick="Proses()" >
+
+            <p id="hasil1"> </p>
+            <p id="hasil2"></p>
+            <p id="hasil3"></p>
+            <p id="hasil4"></p>
+            <p id="hasil5"></p>
+        </form>
+        <script>
+                function Proses() {
+                    Nama = document.getElementById("nama").value;
+                    Email = document.getElementById("email").value;
+                    Agama = document.getElementById("agama").value;
+                    Alamat = document.getElementById("alamat").value;
+            
+                    var ele = document.getElementsByName('gender');   
+                    for(i = 0; i < ele.length; i++) {
+                    if(ele[i].checked)
+                    document.getElementById("hasil3").innerHTML= "Gender: "+ele[i].value;
+                }
+        
+                    document.getElementById("hasil1").innerHTML = "Nama : " + Nama;
+                    document.getElementById("hasil2").innerHTML = "Email : " + Email;
+                    document.getElementById("hasil4").innerHTML = "Agama : " + Agama;
+                    document.getElementById("hasil5").innerHTML = "Alamat : " + Alamat;
+                }
+                    
+        </script>
+    </body>
+</html>
